@@ -25,6 +25,11 @@ class App_Controller_Action extends Zend_Controller_Action {
         $this->options = $bootstrap->getOptions();
 
         $this->auth = new App_Auth();
+        
+        if($this->auth->hasIdentity())
+        {
+            $this->view->user = $this->auth->getData();
+        }
 
         $this->initView();
     }

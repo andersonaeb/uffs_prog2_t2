@@ -60,10 +60,13 @@ class Site_LoginController extends App_Controller_Action {
                 if ($db->fetchAll($db->select()->where('username = ?', $username))->count() > 0) {
                     $this->_redirect('login/signup?error=3');
                 }
-
+                
+                // Clear session login
+                $this->session->unsetAll();
+                
                 // Case success, insert user redirect index
                 $db->insert($data);
-                $this->getAuth()->login($username, $password);
+                $this->getAuth()->login($username, $password);                
                 $this->_redirect('');
             } else {
                 /*

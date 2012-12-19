@@ -27,12 +27,19 @@ form input.text {
     font: 13px 'Arial';
 }
 form input.submit {
-    background: url('../images/buttons.gif');
+    background: #006699 url('../images/icons.png') no-repeat 15px -33px;
     width: 160px;
-    height: 60px;
+    height: 50px;
     border: 0px;
-    text-indent: -9999px;
+    font: 15px 'MyriadProRegular';
+    line-height: 58px;
+    text-indent: 50px;
+    text-align: left;
+    color: #FFF;
     cursor: pointer;
+}
+form input.submit:hover {
+    background-color: #00396b;
 }
 form .error {
     color: red;
@@ -40,6 +47,7 @@ form .error {
 }
 
 header {
+    position: relative;
     padding: 20px 0px 0px 30px;
     font: 13px 'MyriadProRegular';
     width: 930px;
@@ -48,8 +56,22 @@ header {
     background: #f0f0f0;
     border-bottom: 4px solid #a3a3a3;
 }
-
+header .user {
+    font-size: 14px;
+    top: 60px;
+    right: 30px;
+    position: absolute;
+}
+header .user span {
+    font-weight: bold;
+    padding-right: 10px;
+}
+header .user a {
+    color: red;
+    text-decoration: underline;
+}
 #content {
+    min-height: 450px;
     width: 960px;
     margin: 0px auto;
 }
@@ -76,13 +98,13 @@ footer {
 
 .login,
 .cadastro {
-    padding-top: 30px;
+    padding-top: 60px;
     width: 400px;
     margin: 0px auto;
 }
 .login h2,
 .cadastro h2{
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 .login form,
 .cadastro form {
@@ -98,16 +120,20 @@ footer {
     width: 400px;
     font-size: 14px;
     font-family: 'MyriadProRegular';
-    padding-top: 10px;
+    padding-top: 15px;
 }
 .login input.text,
 .cadastro input.text {
     width: 300px;
 }
-.login input.submit,
-.cadastro input.submit {
+.login input.submit {
     margin-top: 20px;
 }
 .cadastro input.submit {
-    background-position: 0px -60px;
+    margin-top: 20px;
+    background-position: 15px -81px;
+    background-color: #00993d;
+}
+.cadastro input.submit:hover {
+    background-color: #006b0c;
 }
