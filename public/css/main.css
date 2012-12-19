@@ -41,3 +41,8 @@ footer {
     border-top: 1px solid #aeaeae;
     padding: 10px;    
 }
+
+.search h1 {
+    font-family:'MyriadProRegular';
+    font-size:26px;
+}
