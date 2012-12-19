@@ -11,10 +11,38 @@ h1 {
     color: #3d3d3d;
 }
 
+h2 {
+    font-size: 22px;
+    color: #3d3d3d;
+}
+
+body {
+    font-size: 13px;
+}
+
+form input.text {
+    background: #f0f0f0;
+    border: 0px;
+    padding: 10px;
+    font: 13px 'Arial';
+}
+form input.submit {
+    background: url('../images/buttons.gif');
+    width: 160px;
+    height: 60px;
+    border: 0px;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+form .error {
+    color: red;
+    padding-top: 10px;
+}
+
 header {
-    padding: 20px 0px 0px 60px;
+    padding: 20px 0px 0px 30px;
     font: 13px 'MyriadProRegular';
-    width: 900px;
+    width: 930px;
     margin: 0px auto;
     height: 100px;
     background: #f0f0f0;
@@ -26,12 +54,12 @@ header {
     margin: 0px auto;
 }
 #content form input.text {
-    
+
     background: #f0f0f0;
 }
 
 footer {    
-    width: 960px;
+    width: 930px;
     margin: 0px auto;
     margin-top: 40px;
     font: 13px 'MyriadProRegular';
@@ -39,5 +67,47 @@ footer {
     line-height: 18px;
     background: #ececec;
     border-top: 1px solid #aeaeae;
-    padding: 10px;    
+    padding: 10px 10px 10px 30px;
+}
+
+/*
+ * LOGIN e CADASTRO
+*/
+
+.login,
+.cadastro {
+    padding-top: 30px;
+    width: 400px;
+    margin: 0px auto;
+}
+.login h2,
+.cadastro h2{
+    padding-bottom: 30px;
+}
+.login form,
+.cadastro form {
+    padding-bottom: 10px;
+}
+.login a,
+.cadastro a {
+    text-decoration: underline;
+}
+.login label, 
+.cadastro label {
+    float: left;
+    width: 400px;
+    font-size: 14px;
+    font-family: 'MyriadProRegular';
+    padding-top: 10px;
+}
+.login input.text,
+.cadastro input.text {
+    width: 300px;
+}
+.login input.submit,
+.cadastro input.submit {
+    margin-top: 20px;
+}
+.cadastro input.submit {
+    background-position: 0px -60px;
 }
