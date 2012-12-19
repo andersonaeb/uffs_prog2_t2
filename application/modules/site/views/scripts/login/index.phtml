@@ -1,0 +1,22 @@
+<div class="index">
+    <h2>Login</h2>
+    <div class="form">        
+        <form action="<?php echo $this->link('login/doauth') ?>" method="POST">
+            <div class="row">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" />
+            </div>
+            <div class="row">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" />
+            </div>
+            <input type="submit" class="submit" value="Log In" />
+        </form>
+        <?php if (!is_null($this->error) && $this->error == 1): ?>
+            <div class="error">
+                Username or password is invalid.
+            </div>
+        <?php endif; ?>
+    </div>    
+    <a href="<?php echo $this->baseUrl('login/signup') ?>" title="Sign up">New user? Sign up.</a>
+</div>

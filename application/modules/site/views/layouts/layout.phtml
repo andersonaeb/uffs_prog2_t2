@@ -1,0 +1,23 @@
+<?php echo $this->doctype() ?>
+<html>
+    <head>
+        <?php echo $this->headMeta() ?>
+        <?php echo $this->headTitle() ?>
+        <?php echo $this->headLink() ?>
+        <?php echo $this->headStyle() ?>
+        <?php echo $this->headScript() ?>
+    </head>
+    <body>
+        <header>
+            <h1>Application for Music</h1>
+            <p>System integration with the Youtube, Last.fm and Vagalume.</p>
+        </header>
+        <div id="content">
+            <?php echo $this->layout()->content ?>
+        </div>
+        <footer>            
+            Programação II - Trabalho (T2)<br />
+            © 2012 - Anderson Eduardo Barberini / Artur Magalhães        
+        </footer>
+    </body>
+</html>
