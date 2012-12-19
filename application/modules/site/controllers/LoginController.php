@@ -18,6 +18,8 @@ class Site_LoginController extends App_Controller_Action {
 
         $this->setTitle('Login');
 
+        $this->session->unsetAll();
+        
         $this->view->error = $this->getParam('error');
     }
 
