@@ -11,12 +11,6 @@
         <header>
             <h1>Application for Music</h1>
             <p>System integration with the Youtube, Last.fm and Vagalume.</p>
-            <?php if ($this->user): ?>
-                <div class="user">
-                    Hello <span><?php echo $this->user->name ?></span>
-                    <a href="<?php echo $this->link('index/logout')?>" title="Logout">(Logout)</a>
-                </div>
-            <?php endif ?>
         </header>
         <div id="content">
             <?php echo $this->layout()->content ?>
