@@ -1,0 +1,8 @@
+<h3 id="bibliography">Bibliography</h3>
+<?php if (isset($this->info['artist']['bio']['content'])): ?>
+    <div class="text">
+        <?php echo $this->info['artist']['bio']['content'] ?>
+    </div>
+<?php else: ?>
+    <div class="txtCenter">No bibliography.</div>
+<?php endif; ?>

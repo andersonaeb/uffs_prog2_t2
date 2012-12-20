@@ -1,0 +1,12 @@
+<?php if (isset($this->info['artist'])): ?>
+    <img src="<?php echo $this->info['artist']['image']['3']['#text'] ?>" alt=""/>
+<?php endif ?>
+<ul>
+    <?php if (isset($this->info['artist'])): ?>
+        <li class="title"><?php echo $this->info['artist']['name'] ?></li>
+    <?php endif ?>
+    <li><a href="#lyrics">&triangleright; Lyrics</a></li>
+    <li><a href="#bibliography">&triangleright; Bibliography</a></li>
+    <li><a href="#tracks">&triangleright; Top Tracks</a></li>
+    <li><a href="#albums">&triangleright; Top Albums</a></li>
+</ul>

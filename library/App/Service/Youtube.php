@@ -16,9 +16,14 @@ class App_Service_Youtube {
         $this->cache = new App_Cache();
     }
 
+    private function getKey($query) {
+        return md5('youtube_video_' . $query);
+    }
+
     public function get($query) {
 
-        $video = $this->cache->load($query);
+        $key = $this->getKey($query);
+        $video = $this->cache->load($key);
 
         if ($video === false) {
 
@@ -30,7 +35,7 @@ class App_Service_Youtube {
 
             $res = $yt->getVideoFeed($ytq);
 
-            $this->cache->save($res, $query);
+            $this->cache->save($res, $key);
 
             return $res;
         } else {

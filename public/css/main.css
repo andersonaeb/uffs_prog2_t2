@@ -9,15 +9,46 @@
 h1 {
     font-size: 28px;
     color: #3d3d3d;
+    font-family: 'MyriadProRegular';
 }
 
 h2 {
     font-size: 22px;
     color: #3d3d3d;
+    font-family: 'MyriadProRegular';
 }
 
+h3 {
+    font-size: 16px;
+    color: #3d3d3d;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #c1c1c1;
+    font-family: 'MyriadProRegular';
+}
+
+h4 {
+    padding-top: 20px;
+    font-size: 15px;
+    font-family: 'MyriadProRegular';
+}
+.txtCenter {
+    text-align: center;
+}
+
+div.text {
+    font: 13px 'Arial';
+    line-height: 20px;
+}
 body {
     font-size: 13px;
+}
+
+.wrap {
+    position: relative;
+    min-height: 100%;
 }
 
 form input.text {
@@ -25,6 +56,7 @@ form input.text {
     border: 0px;
     padding: 10px;
     font: 13px 'Arial';
+    color: #454545      ;
 }
 form input.submit {
     background: #006699 url('../images/icons.png') no-repeat 15px -33px;
@@ -47,19 +79,21 @@ form .error {
 }
 
 header {
-    position: relative;
-    padding: 20px 0px 0px 30px;
-    font: 13px 'MyriadProRegular';
-    width: 930px;
-    margin: 0px auto;
-    height: 100px;
     background: #f0f0f0;
     border-bottom: 4px solid #a3a3a3;
 }
+header .content {
+    position: relative;
+    padding-top: 20px;
+    font: 13px 'MyriadProRegular';
+    width: 960px;
+    margin: 0px auto;
+    height: 100px;
+}
 header .user {
     font-size: 14px;
-    top: 60px;
-    right: 30px;
+    top: 55px;
+    right: 0px;
     position: absolute;
 }
 header .user span {
@@ -71,25 +105,28 @@ header .user a {
     text-decoration: underline;
 }
 #content {
-    min-height: 450px;
     width: 960px;
     margin: 0px auto;
+    padding-bottom: 130px;
 }
 #content form input.text {
-
     background: #f0f0f0;
 }
 
-footer {    
-    width: 930px;
-    margin: 0px auto;
-    margin-top: 40px;
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #aeaeae;
+    background: #ececec;
+}
+footer .content {
     font: 13px 'MyriadProRegular';
     color: #363636;
-    line-height: 18px;
-    background: #ececec;
-    border-top: 1px solid #aeaeae;
-    padding: 10px 10px 10px 30px;
+    line-height: 18px;    
+    width: 960px;
+    padding: 15px 0px 15px 0px;
+    margin: 0px auto;
 }
 
 /*
@@ -136,4 +173,181 @@ footer {
 }
 .cadastro input.submit:hover {
     background-color: #006b0c;
+}
+
+/*
+ * Result
+*/
+.result {
+    padding-top: 20px;
+}
+.result h1 {
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.result h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+
+/*
+ * Search
+*/
+.search {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #c9c9c9;
+}
+.search h2 {
+    padding-bottom: 20px;
+}
+.search input.text {
+    float: left;
+    padding: 15px;
+    height: 20px;
+    width: 770px;
+}
+.search .submit {
+    background-color: #990f00;
+    background-position: 15px 18px;
+}
+.search .submit:hover {
+    background-color: #6b0000;
+}
+/*
+ * Menu, Video
+*/
+.info {
+    padding-top: 30px;
+    overflow: hidden;
+}
+.info h2 {
+    padding-bottom: 30px;
+}
+.info .menu {
+    position: relative;
+    float: left;
+    width: 252px;
+}
+.info .menu ul {
+    background: #f6f6f6;
+    padding: 10px;
+    position: relative;
+    top: -40px;
+    width: 180px;
+    margin: 0px auto;
+    border-bottom: 1px solid #a3a3a3;
+}
+.info .menu ul li {
+    padding-bottom: 10px;
+}
+.info .menu ul li.title {
+    font-size: 18px;
+    font-family: 'MyriadProRegular';
+    padding-bottom: 10px;
+}
+
+.info .video {
+    float: right;
+}
+
+
+/*
+ * LYRICS
+*/
+
+.lyrics {
+    padding-top: 40px;
+}
+
+/*
+ * TRACKS
+*/
+
+.tracks {
+    padding-top: 40px;
+}
+.tracks h2 {
+    padding-bottom: 15px;
+}
+.tracks ul li {
+    padding: 12px;
+    margin-bottom: 2px;
+    background: #ececec;
+}
+.tracks ul li span.num {
+    float: left;
+    padding: 3px 0px 3px 0px;
+    font-size: 11px;
+    width: 20px;
+    color: #FFF;
+    margin-right: 10px;
+    background: #333;
+    text-align: center; 
+}
+.tracks ul li span.count {
+    float: right;
+    font-weight: bold;
+}
+
+
+/*
+ * ALBUMS
+*/
+
+.albums {
+    padding-top: 40px;
+}
+.albums h2 {
+    padding-bottom: 15px;
+}
+.albums ul {
+    overflow: hidden;
+}
+.albums ul li {
+    width: 180px;
+    padding-right: 15px;
+    float: left;
+}
+.albums ul li.last {
+    padding-right: 0px;
+}
+.albums ul li a {
+    float: left;
+    height: 180px;
+    position: relative;
+}
+.albums ul li a span {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: #333;
+    color: #FFF;
+    padding: 3px 6px;
+    display: inline-block;
+}
+.albums ul li a:hover span {
+    background: #000;
+}
+
+/*
+ * Bibliography
+*/
+
+.artist {
+    padding-top: 40px;
+}
+
+/*
+ * Social
+*/
+.social {
+    height: 30px;
+    padding-top: 10px;
+}
+.social div {
+    padding-right: 10px;
+    float: left;
 }

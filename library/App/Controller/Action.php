@@ -25,13 +25,16 @@ class App_Controller_Action extends Zend_Controller_Action {
         $this->options = $bootstrap->getOptions();
 
         $this->auth = new App_Auth();
-        
-        if($this->auth->hasIdentity())
-        {
+
+        if ($this->auth->hasIdentity()) {
             $this->view->user = $this->auth->getData();
         }
 
         $this->initView();
+    }
+
+    public function setOgImage($image) {
+        $this->view->headMeta()->setName('og:image', $image);
     }
 
     protected function setTitle($value) {
@@ -55,25 +58,26 @@ class App_Controller_Action extends Zend_Controller_Action {
         $this->view->headTitle()->setSeparator(' / ');
         $this->view->headTitle($this->options['site']['title']);
 
+        // Meta-Tags
+        $this->view->headMeta()
+                ->appendName('identifier', 'http://' . $_SERVER['HTTP_HOST'])
+                ->appendName('description', $this->options['site']['description']);
 
         // Head-Link
         $this->view->headLink(
                 array('rel' => 'icon',
-                    'href' => $this->view->baseUrl(
-                            'public/imgs/favicon.ico'),
+                    'href' => $this->view->baseUrl('images/favicon.ico'),
                     'type' => 'image/x-icon'));
 
         $this->view->headLink(
                 array('rel' => 'shortcut icon',
-                    'href' => $this->view->baseUrl(
-                            'public/imgs/favicon.ico'),
+                    'href' => $this->view->baseUrl('images/favicon.ico'),
                     'type' => 'image/x-icon'));
 
         $this->view->headScript()->appendScript("var HOST = '" . $this->view->baseUrl() . "/';");
 
         // Add CSS and JS
-        $this->addJs('jquery-1.2.6.min.js');
-        $this->addJs('default.js');
+        $this->addJs('main.js');
 
         $this->addCss('reset.css');
         $this->addCss('main.css');
@@ -97,10 +101,14 @@ class App_Controller_Action extends Zend_Controller_Action {
      * Auth
      * @return App_Auth
      */
-    public function getAuth()
-    {
+    public function getAuth() {
         return $this->auth;
     }
+
+    public function getParam($paramName, $default = null) {
+        return $this->_request->getParam($paramName, $default);
+    }
+
 }
 
 ?>

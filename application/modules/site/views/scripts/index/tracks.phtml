@@ -1,0 +1,28 @@
+<h3 id="tracks">Top 10 Tracks</h3>
+<?php if (isset($this->tracks['toptracks']['track'])): ?>
+    <ul>
+        <?php
+        $i = 1;
+        if (isset($this->tracks['toptracks']['track'][0])) {
+            $list = $this->tracks['toptracks']['track'];
+        } else {
+            $list[0] = $this->tracks['toptracks']['track'];
+        }
+
+        foreach ($list as $track):
+            ?>
+            <li>
+                <span class="num"><?php echo $i ?></span>
+                <a href="<?php echo $track['url'] ?>" target="_blank" title="<?php echo $track['name'] ?>">
+                    <?php echo $track['name'] ?>
+                    <span class="count"><?php echo $track['playcount'] ?></span>
+                </a>
+            </li>
+            <?php
+            $i++;
+        endforeach
+        ?>
+    </ul>
+<?php else: ?>
+    <div class="txtCenter">No tracks found.</div>
+<?php endif ?>

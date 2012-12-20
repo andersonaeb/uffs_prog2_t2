@@ -28,19 +28,77 @@ class App_Service_Lastfm {
 
         $s = explode(',', $query);
 
-        $this->artist = $s[0];
+        $this->artist = $s[1];
 
         $this->cache = new App_Cache();
     }
 
+    private function getKey($query) {
+        return md5('last_fm' . $query);
+    }
+
+    public function getArtist() {
+        $key = $this->getKey('_artist_' . $this->artist);
+
+        $res = $this->cache->load($key);
+
+        if ($res === false) {
+
+            $artist = urlencode($this->artist);
+            $url = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' . $artist . '&api_key=' . $this->api_key . '&format=json';
+
+            $json = file_get_contents($url);
+            $decoded = Zend_Json::decode($json);
+
+            $this->cache->save($decoded, $key);
+
+            return $decoded;
+        } else {
+            return $res;
+        }
+    }
+
+    public function getTopTracks() {
+
+        $key = $this->getKey('_toptracks_' . $this->artist);
+        
+        $res = $this->cache->load($key);
+
+        if ($res === false) {
+
+            $artist = urlencode($this->artist);
+            $url = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist='. $artist .'&api_key='. $this->api_key .'&limit=10&format=json';
+            
+            $json = file_get_contents($url);
+            $decoded = Zend_Json::decode($json);
+
+            $this->cache->save($decoded, $key);
+
+            return $decoded;
+        } else {
+            return $res;
+        }
+    }
+    
     public function getTopAlbums() {
 
-        $url = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=' . urlencode($this->artist) . '&api_key=' . $this->api_key . '&format=json';
+        $key = $this->getKey('_topalbums_' . $this->artist);
         
-        $json = file_get_contents($url);
-        
-        if ($json) {
-            return Zend_Json::decode($json);
+        $res = $this->cache->load($key);
+
+        if ($res === false) {
+
+            $artist = urlencode($this->artist);
+            $url = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=' . $artist . '&api_key=' . $this->api_key . '&limit=5&format=json';
+
+            $json = file_get_contents($url);
+            $decoded = Zend_Json::decode($json);
+
+            $this->cache->save($decoded, $key);
+
+            return $decoded;
+        } else {
+            return $res;
         }
     }
 

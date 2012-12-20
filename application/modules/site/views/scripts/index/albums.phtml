@@ -1,0 +1,27 @@
+<h3 id="albums">Top Albums</h3>
+<?php if (isset($this->albums['topalbums']['album'])): ?>
+    <ul>
+        <?php
+        $i = 1;
+        if (isset($this->albums['topalbums']['album'][0])) {
+            $list = $this->albums['topalbums']['album'];
+        } else {
+            $list[0] = $this->albums['topalbums']['album'];
+        }
+
+        foreach ($list as $album):
+            ?>
+            <li<?php echo ($i == 5) ? ' class="last"' : '' ?>>
+                <a href="<?php echo $album['url'] ?>" target="_blank" title="<?php echo $album['name'] ?>">
+                    <img src="<?php echo $album['image']['3']['#text'] ?>" width="180" alt="<?php echo $album['name'] ?>" />
+                    <span><?php echo $album['name'] ?></span>
+                </a>
+            </li>
+            <?php
+            $i++;
+        endforeach
+        ?>
+    </ul>
+<?php else: ?>
+    <div class="txtCenter">No album found.</div>
+<?php endif ?>

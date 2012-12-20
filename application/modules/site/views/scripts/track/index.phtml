@@ -1,0 +1,8 @@
+<br />
+<h1><?php echo $this->artist_name ?></h1>
+<h2><?php echo $this->song_name ?></h2>
+<br />
+<img src="<?php echo $this->og_image ?>" />
+<script>
+    window.location = "<?php echo $this->link('index?s=' . $this->search) ?>";
+</script>

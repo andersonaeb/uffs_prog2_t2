@@ -1,4 +1,57 @@
-<h2>Search by "<?php echo $this->search ?>"</h2>
-<div class="video">
-    <?php echo $this->video ?>
+<div class="search">
+    <h2>Search</h2>
+    <form action="<?php echo $this->link('index') ?>" method="GET">
+        <input type="text" name="s" class="text" value="<?php echo $this->search_value ?>" />
+        <input type="submit" class="submit" value="Search" />
+        <?php if ($this->error): ?>
+            <div class="error">Search invalid format. (Required: Song name, artist name)</div>
+        <?php endif ?>
+    </form>    
 </div>
+<?php if ($this->show_content): ?>
+    <div class="result">
+        <h1><?php echo $this->artist_name ?></h1>
+        <h2><?php echo $this->song_name ?></h2>
+        <?php
+        $url = $this->link('track?s=' . urlencode($this->search_value));
+        ?>
+        <div class="social">
+            <div class="twt">
+                <?php echo $this->twitter()->share($url, strtoupper($this->song_name . ', ' . $this->artist_name), '') ?>
+            </div>
+            <div class="fbk">
+                <?php echo $this->facebook()->like($url, 150) ?>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <div class="menu">
+            <?php echo $this->menu ?>
+        </div>
+        <div class="video">
+            <?php echo $this->video ?>
+        </div>
+    </div>
+    <div class="lyrics">
+        <?php echo $this->lyrics ?>
+    </div>
+    <div class="artist">
+        <?php echo $this->artist ?>
+    </div>
+    <div class="tracks">
+        <?php echo $this->tracks ?>
+    </div>
+    <div class="albums">
+        <?php echo $this->albums ?>
+    </div>
+<?php else: ?>
+    <div class="searches">
+        <h4>Top Searches</h4>
+        <?php foreach ($this->searches as $s): ?>
+        <a href="<?php echo $this->link('index?s=' . urlencode($s->query))?>"><?php echo $s->query ?></a>&nbsp;&nbsp;&nbsp;
+        <?php endforeach ?>
+    </div>
+<?php endif ?>
+<script>
+    Main.init();
+</script>

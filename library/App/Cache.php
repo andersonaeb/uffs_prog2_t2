@@ -34,15 +34,9 @@ class App_Cache {
                         , array('lifetime' => $this->lifetime, 'automatic_serialization' => true)
                         , array('cache_dir' => $this->directory));
     }
-
-    private function getKey($cache_id) {
-        return md5($cache_id);
-    }
-
     public function load($cache_id) {
-        $key = $this->getKey($cache_id);
 
-        if (($data = $this->cache->load($key)) === false) {
+        if (($data = $this->cache->load($cache_id)) === false) {
             return false;
         } else {
             return $data;
@@ -50,9 +44,8 @@ class App_Cache {
     }
 
     public function save($content, $cache_id) {
-        $key = $this->getKey($cache_id);
-
-        $this->cache->save($content, $key);
+        
+        $this->cache->save($content, $cache_id);
     }
 
 }
